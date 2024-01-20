@@ -23,7 +23,7 @@ app.post('/upload', (req, res) => {
     // image name
     let imagename = date.getDate() + date.getTime() + file.name;
     // image upload path
-    let path = '/uploads/' + imagename;
+    let path = 'public/uploads/' + imagename;
 
     // create upload
     file.mv(path, (err, result) => {
@@ -31,13 +31,13 @@ app.post('/upload', (req, res) => {
             throw err;
         } else{
             // our image upload path
-            res.json(`/uploads/${imagename}`)
+            res.json(`uploads/${imagename}`)
         }
     })
 })
 
 app.get("/:blog", (req, res) => {
-    res.sendFile(path.join(initial_path, "/blog.html"));
+    res.sendFile(path.join(initial_path, "blog.html"));
 })
 
 app.use((req, res) => {
