@@ -23,7 +23,7 @@ const uploadImage = (uploadFile, uploadType) => {
         const formdata = new FormData();
         formdata.append('image', file);
 
-        fetch('https://josiah-blog.vercel.app/public/uploads', {
+        fetch('/public/uploads', {
             method: 'post',
             body: formdata
         }).then(res => res.json())

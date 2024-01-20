@@ -9,11 +9,11 @@ app.use(express.static(initial_path));
 app.use(fileupload());
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(initial_path, "home.html"));
+    res.sendFile(path.join(initial_path, "/home.html"));
 })
 
 app.get('/editor', (req, res) => {
-    res.sendFile(path.join(initial_path, "editor.html"));
+    res.sendFile(path.join(initial_path, "/editor.html"));
 })
 
 // upload link
@@ -23,7 +23,7 @@ app.post('/upload', (req, res) => {
     // image name
     let imagename = date.getDate() + date.getTime() + file.name;
     // image upload path
-    let path = 'https://josiah-blog.vercel.app/public/uploads/' + imagename;
+    let path = '/public/uploads/' + imagename;
 
     // create upload
     file.mv(path, (err, result) => {
@@ -31,13 +31,13 @@ app.post('/upload', (req, res) => {
             throw err;
         } else{
             // our image upload path
-            res.json(`https://josiah-blog.vercel.app/public/uploads/${imagename}`)
+            res.json(`/public/uploads/${imagename}`)
         }
     })
 })
 
 app.get("/:blog", (req, res) => {
-    res.sendFile(path.join(initial_path, "blog.html"));
+    res.sendFile(path.join(initial_path, "/blog.html"));
 })
 
 app.use((req, res) => {
