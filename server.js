@@ -31,7 +31,7 @@ app.post('/upload', (req, res) => {
             throw err;
         } else{
             // our image upload path
-            res.json(`https://josiah-blog.vercel.app/uploads/${imagename}`)
+            res.json(`https://josiah-blog.vercel.app/public/uploads/${imagename}`)
         }
     })
 })
