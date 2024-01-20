@@ -23,7 +23,7 @@ app.post('/upload', (req, res) => {
     // image name
     let imagename = date.getDate() + date.getTime() + file.name;
     // image upload path
-    let path = 'public/uploads/' + imagename;
+    let path = 'https://josiah-blog.vercel.app/public/uploads/' + imagename;
 
     // create upload
     file.mv(path, (err, result) => {
@@ -31,7 +31,7 @@ app.post('/upload', (req, res) => {
             throw err;
         } else{
             // our image upload path
-            res.json(`uploads/${imagename}`)
+            res.json(`https://josiah-blog.vercel.app/uploads/${imagename}`)
         }
     })
 })
